@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Nunito", sans-serif;
+}
+
+.App .openModalBtn {
+  width: 150px;
+  height: 40px;
+  border: none;
+  border-radius: 3px;
+  align-items: left;
+  background-color: rgb(254, 148, 109);
+  color: white;
+  cursor: pointer;
+
+}
+
+.newtask-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.form-group {
+  margin-right: 10px;
+}
+
+.form-group input,
+.form-group select {
+  height: 30px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-group input {
+  width: 150px;
+}
+
+.form-group select {
+  width: 120px;
+}
+
+button {
+  height: 20px;
+  padding: 0 10px;
+  border: none;
+  background-color: #ccc;
+  color: #000;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #aaa;
+}
+
+.search-form {
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.search-form label {
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+.search-form input[type="text"] {
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.search-form select {
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.average-time-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #fff;
+  width: 80%;
+  max-width: 600px;
+  justify-content: space-between;
+}
+
+.average-time-section,
+.priority-time-section {
+  flex: 1;
+  text-align: center;
+}
+
+.average-time-section p,
+.priority-time-section p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.priority-time-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.priority-time-section ul li {
+  margin-bottom: 5px;
+}
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.pagination a {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.pagination a:hover {
+  background-color: #ddd;
+}
+
+
+.styled-table {
+  border-collapse: collapse;
+  width: 100%;
+  th, td {
+    border-bottom: 1px solid #ddd;
+  }
+  th {
+    background-color:coral;
+    color: white;
+  }
+  tr:hover {background-color: rgb(251, 156, 122);}
+}
+
+.table-header {
+  padding: 8px;
+}
+
+.table-cell {
+  padding: 8px;
+}
+
+.checkbox {
+  margin-left: 10px;
+}
+
+
+
+.table-row {
+  background-color: inherit;
+  text-decoration: inherit;
+}
+
+#sorter {
+  display: inline;
+}
+
+#sorter + label:before {
+  content: "\f0c9"; 
+}
+
+#sorter:checked + label:before {
+  content: "\f0aa"; 
+}
