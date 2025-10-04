@@ -9,6 +9,13 @@ import Pagination from './components/pagination.js';
 
 import "./App.css"
 
+
+const Sorted = Object.freeze({
+  DONE: Symbol("done"),
+  PRIORITY: Symbol("priority"),
+  DATE: Symbol("date"),
+});
+
 function App() {
 
 
@@ -22,9 +29,7 @@ function App() {
 
   const pageSize = 10;
   const [pageNumber, setPageNumber] = useState(1);
-  const [sortByDone, setSortByDone] = useState(false);
-  const [sortByDate, setSortByDate] = useState(false);
-  const [sortByPriority, setSortByPriority] = useState(false);
+  const [sortBy, setSortBy] = useState(""); // "done", "date", "priority", or ""
   const [nameFilter, setNameFilter] = useState('');
   const [priorityFilter, setPriorityFilter] = useState('all');
   const [doneFilter, setDoneFilter] = useState('all');
@@ -35,9 +40,9 @@ function App() {
       const response = await fetchToDos(
         pageSize,
         pageNumber,
-        sortByDone,
-        sortByDate,
-        sortByPriority,
+        sortBy === Sorted.DONE,
+        sortBy === Sorted.DATE,
+        sortBy === Sorted.PRIORITY,
         nameFilter,
         priorityFilter,
         doneFilter,
@@ -90,17 +95,20 @@ function App() {
   };
 
   const handleSortByPriority = (sort) => {
-    setSortByPriority(sort);
+    if(sort) setSortBy(Sorted.PRIORITY);
+    else setSortBy("");
     loadToDos();
   };
 
   const handleSortByDate = (sort) => {
-    setSortByDate(sort);
+    if(sort) setSortBy(Sorted.DATE);
+    else setSortBy("");
     loadToDos();
   };
 
   const handleSortByDone = (sort) => {
-    setSortByDone(sort);
+    if(sort) setSortBy(Sorted.DONE);
+    else setSortBy("");
     loadToDos();
   };
 
@@ -118,7 +126,7 @@ function App() {
   useEffect(() => {
     loadToDos();
     loadAllData();
-  },[pageSize, pageNumber, sortByDone, sortByDate, sortByPriority, nameFilter, priorityFilter, doneFilter]);
+  },[pageSize, pageNumber, sortBy, nameFilter, priorityFilter, doneFilter]);
 
 
   return(
